@@ -1,0 +1,134 @@
+<div class="class">
+    MEU PRIMEIRO CMP
+    <br>
+    MEU NOME:{{name}}
+    <br>
+    TITULO PAGINA PAI:{{titleParaFilho}}
+    <br>
+    OUTRO NOME:{{namee}}
+    <br>
+</div>
+<div class="class">
+    <p>Exemplo NGRX</p>
+    <h1>{{counter$ | async}}</h1>
+
+    <button (click)="incrementaContador()">INCLEMENT</button>
+    <div></div>
+    <button (click)="decrementaContador()">DECLEMENT</button>
+    <app-display-contador></app-display-contador>
+</div>
+
+<div class="class">
+    DIRETIVA DE ESTILO:
+    <h2 [ngStyle]="{'font-size': size +'px' , 'font-family':font , 'color':color}"> testando</h2>
+
+</div>
+<div class="class">
+    DIRETIVA DE CLASSES:
+    <h2 [ngClass]="classes"> testando</h2>
+
+</div>
+<div class="class">
+    RENDERIZAÇÃO CONDICIONAL NGIF:
+    <div *ngIf="canShow">
+        ESTAMOS MOSTRANDO ISSO PQ FOI PERMITIDO
+    </div>
+    <h2 *ngIf="name==='Thiago0000000' ; else nameNaoExiste">So mostra se o nome for Thiago</h2>
+    <ng-template #nameNaoExiste>
+        <div *ngIf="canShow">
+            NOME {{name}} NÃO FOI ENCONTRADO
+        </div>
+    </ng-template>
+
+</div>
+<div class="class">
+    EVENTOS:
+    <p id="showPevent" *ngIf="showPevent"> ||||||||||||showPevent||||||||| </p>
+    <button (click)="showPeventClick()">Click para exibir o paragrafo</button>
+
+</div>
+
+<div class="class">
+    @OUTPUT DO CMP FILHO PARA O PAI:
+    <h2>O numero é : {{myOnChangeNumber}}</h2>
+    <app-change-number (changeNumber)="onChangeNumber()"></app-change-number>
+
+</div>
+
+<div class="class">
+    NGFOR:
+    <h2>Animais array object</h2>
+    <ul>
+        <li *ngFor="let animal of amimals">Nome: {{animal.name}} - Tipo:{{animal.type}} </li>
+    </ul>
+    <h2>Animais array</h2>
+    <ul>
+        <li *ngFor="let amimalsName of amimalsNames"> {{ amimalsName }}
+            <button (click)="removeAnimalArray(amimalsName)">Click REMOVER ANIMAL</button>
+        </li>
+    </ul>
+
+    INTERFACES:
+    <h2>Animais array interface</h2>
+    <ul>
+        <li *ngFor="let animal of amimalsWithInterface">Nome: {{animal.name}} - Tipo:{{animal.type}}
+            <button (click)="removeAnimal(animal)">Click REMOVER ANIMAL</button>
+        </li>
+    </ul>
+
+
+</div>
+
+<div class="class">
+    OPERADOR PIPE:
+    <h2>{{'Algum Texto uppercase' | uppercase}}</h2>
+    <h2>{{'Algum Texto titlecase' | titlecase}}</h2>
+    <h2>{{datecase | date: "fullDate"}} - fullDate</h2>
+    <h2>{{datecase | date: "short"}} - short</h2>
+    <h2>{{today | date: 'shortDate'}} - shortDate</h2>
+    <h2>{{today | date:'hh:mm:ss'}} - custom</h2>
+</div>
+
+<div class="class">
+    Two way data binding:
+    <form>
+        <input type="text" [(ngModel)]="nameForm" name="nameForm" placeholder="Digite seu nome" />
+        <input type="submit" value="Enviar" />
+        <p>{{nameForm}}</p>
+    </form>
+    <div *ngIf="nameForm !== ''">
+        <p>valor atributo nameForm:</p>
+        <p>{{nameForm}}</p>
+    </div>
+</div>
+
+<div class="class">
+    SERVICE:
+    <h2>Animais array interface</h2>
+    <ul>
+        <li *ngFor="let animal of amimalsWithInterface">Nome: {{animal.name}} - Tipo:{{animal.type}} </li>
+    </ul>
+
+
+</div>
+
+<div class="class">
+    SERVICE:
+    <h2>Animais array interface com HTTP json-server</h2>
+    <ul>
+        <li *ngFor="let animal of amimalsWithInterfaceVazio">Nome: {{animal.name}} - Tipo:{{animal.type}} </li>
+    </ul>
+</div>
+
+<div class="class">
+    SERVICE:
+    <h2>Animais array interface com HTTP json-server</h2>
+    <ul>
+        <li *ngFor="let animal of amimalsWithInterfaceVazio">Nome: {{animal.name}} - Tipo:{{animal.type}}
+            <button (click)="getAnimal(animal.id)">Click mostra animal</button>
+        </li>
+    </ul>
+    <div *ngIf="showAnimal.id !== 0">
+        {{showAnimal.name}} - teste
+    </div>
+</div>
